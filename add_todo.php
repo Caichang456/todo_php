@@ -9,11 +9,11 @@
 	<body>
 		<h1>Todo App</h1>
 		<a href="index.php">Go Back</a>
-		<form action="save_post.php" method="POST">
+		<form action="save_todo.php" method="POST">
 			<label>Title</label>
-			<input type="text" name="txt_tile" placeholder="Title" required="required"><br>
+			<input type="text" name="title" placeholder="Title" required="required"><br>
 			<label>Description</label>
-			<textarea placeholder="Description" name="txt_description"></textarea><br>
+			<input type="text" name="description" placeholder="Description" required="required"><br>
 			<input type="submit" value="Save">
 		</form>
 	</body>

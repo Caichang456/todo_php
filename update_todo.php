@@ -1,5 +1,5 @@
 <?php
-	include_once("config.php");
+	include 'koneksi.php';
 
 	$id_todo = $_POST['id_todo'];
 	$title = $_POST['title'];

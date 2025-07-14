@@ -1,7 +1,3 @@
-<?php
-	include_once("config.php");
-	$result = mysqli_query($mysqli, "SELECT * FROM tb_todo");
-?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -20,13 +16,18 @@
 				<th>Action</th>
 			</tr>
 			<?php
-				while($todo_data = mysqli_fetch_array($result)){
-					echo "<tr>";
-					echo "<td>".$todo_data['title']."</td>";
-					echo "<td>".$todo_data['description']."</td>";
-					echo "<td><a href='edit_todo.php?id_todo=$todo_data['id_todo']'>Edit</a> | <a href='delete_todo.php?id_todo=$todo_data['id_todo']'>Delete</a></td>";
-					echo "</tr>";
-				}
+				include 'koneksi.php';
+				$data = mysqli_query($koneksi,"select * from tb_todo");
+				while($d = mysqli_fetch_array($data)){ ?>
+					<tr>
+						<td><?php echo $d['title']; ?></td>
+						<td><?php echo $d['description']; ?></td>
+						<td>
+							<a href="edit_todo.php?id_todo=<?php echo $d['id_todo'];?>">Edit</a> |
+							<a href="delete_todo.php?id_todo=<?php echo $d['id_todo'];?>">Delete</a>
+						</td>
+					</tr>
+				<?php }
 			?>
 		</table>
 	</body>

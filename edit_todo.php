@@ -1,13 +1,3 @@
-<?php
-	include_once("config.php");
-	$id_todo = $_GET['id_todo'];
-	$result = mysqli_query($mysqli, "SELECT * FROM tb_todo WHERE id_todo=$id_todo");
-
-	while($todo_data = mysqli_fetch_array($result)){
-		$title = $todo_data['title'];
-		$description = $todo_data['description'];
-	}
-?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -19,13 +9,20 @@
 	<body>
 		<h1>Todo App</h1>
 		<a href="index.php">Go Back</a>
-		<form action="update_post.php" method="POST">
-			<label>Title</label>
-			<input type="text" name="txt_tile" placeholder="Title" required="required" value="<?php $title; ?>"><br>
-			<label>Description</label>
-			<input type="text" name="txt_description" placeholder="Description" required="required" value="<?php $description; ?>"</textarea><br>
-			<input type="hidden" name="txt_id_todo" required="required" value="<?php echo $_GET['id_todo']; ?>"
-			<input type="submit" value="Save">
-		</form>
+		<?php
+			include 'koneksi.php';
+			$id_todo = $_GET['id_todo'];
+			$data = mysqli_query($koneksi,"select * from tb_todo where id_todo='$id_todo'");
+			while($d = mysqli_fetch_array($data)){ ?>
+				<form action="update_todo.php" method="POST">
+					<label>Title</label>
+					<input type="hidden" name="id_todo" value="<?php $d['id_todo']; ?>">
+					<input type="text" name="title" placeholder="Title" required="required" value="<?php echo $d['title']; ?>"><br>
+					<label>Description</label>
+					<input type="text" name="description" placeholder="Description" required="required" value="<?php echo $d['description']; ?>"><br>
+					<input type="submit" value="Save">
+				</form>
+			<?php }
+		?>
 	</body>
 </html>
