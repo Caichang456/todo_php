@@ -14,7 +14,7 @@
 			<input type="text" name="title" placeholder="Title" required="required"><br>
 			<label>Description</label>
 			<input type="text" name="description" placeholder="Description" required="required"><br>
-			<input type="submit" value="Save">
+			<input type="submit" name="save_post" value="Save">
 		</form>
 	</body>
 </html>

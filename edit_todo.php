@@ -20,7 +20,7 @@
 					<input type="text" name="title" placeholder="Title" required="required" value="<?php echo $d['title']; ?>"><br>
 					<label>Description</label>
 					<input type="text" name="description" placeholder="Description" required="required" value="<?php echo $d['description']; ?>"><br>
-					<input type="submit" value="Save">
+					<input type="submit" name="update_todo" value="Save">
 				</form>
 			<?php }
 		?>
