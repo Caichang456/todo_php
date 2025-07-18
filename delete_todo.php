@@ -1,5 +1,5 @@
 <?php
-	include 'koneksi.php';
-	$id_todo = $_GET['id_todo'];
-	mysqli_query($mysqli, "DELETE FROM tb_todo WHERE id_todo='$id_todo'");
+	includee 'connection.php';
+	$id = $_GET['id'];
+	mysqli_query($connection,"delete from table_todo where id='$id'");
 ?>
